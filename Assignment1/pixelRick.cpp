@@ -47,7 +47,6 @@ struct MyApp : App {
   void onAnimate(double dt) override {
     if (pixbehaviour == 1) {
       for (int i = 0; i < mesh.vertices().size(); i++) {
-        // std::cout << dt << std::endl;
         mesh.vertices()[i].lerp(poseDefault[i], 0.02);
       }
     } else if (pixbehaviour == 2) {
@@ -133,7 +132,6 @@ struct MyApp : App {
       }
     }
     nav().faceToward(0);
-    std::cout << gravity << std::endl;
   }
 
   void onDraw(Graphics &g) override {
