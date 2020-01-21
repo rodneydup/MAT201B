@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rondo/Software/sandbox/MAT201B/allolib_playground
+CMAKE_SOURCE_DIR = /home/rondo/Software/sandbox/allolib_playground
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release
+CMAKE_BINARY_DIR = /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release
 
 # Utility rule file for image-to-mesh_run_debug.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodne
 include CMakeFiles/image-to-mesh_run_debug.dir/progress.make
 
 CMakeFiles/image-to-mesh_run_debug: ../../../bin/image-to-mesh
-	cd /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/bin && gdb -ex run ./image-to-meshd
+	cd /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/bin && gdb -ex run ./image-to-meshd
 
 image-to-mesh_run_debug: CMakeFiles/image-to-mesh_run_debug
 image-to-mesh_run_debug: CMakeFiles/image-to-mesh_run_debug.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/image-to-mesh_run_debug.dir/clean:
 .PHONY : CMakeFiles/image-to-mesh_run_debug.dir/clean
 
 CMakeFiles/image-to-mesh_run_debug.dir/depend:
-	cd /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rondo/Software/sandbox/MAT201B/allolib_playground /home/rondo/Software/sandbox/MAT201B/allolib_playground /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles/image-to-mesh_run_debug.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/rondo/Software/sandbox/allolib_playground /home/rondo/Software/sandbox/allolib_playground /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles/image-to-mesh_run_debug.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/image-to-mesh_run_debug.dir/depend
 

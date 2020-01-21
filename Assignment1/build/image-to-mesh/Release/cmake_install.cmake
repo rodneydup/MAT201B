@@ -1,4 +1,4 @@
-# Install script for directory: /home/rondo/Software/sandbox/MAT201B/allolib_playground
+# Install script for directory: /home/rondo/Software/sandbox/allolib_playground
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/rondo/Software/sandbox/MAT201B/allolib_playground/allolib/build/Release/cmake_install.cmake")
-  include("/home/rondo/Software/sandbox/MAT201B/allolib_playground/allolib/build/al_ext/cmake_install.cmake")
+  include("/home/rondo/Software/sandbox/allolib_playground/allolib/build/Release/cmake_install.cmake")
+  include("/home/rondo/Software/sandbox/allolib_playground/allolib/build/al_ext/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

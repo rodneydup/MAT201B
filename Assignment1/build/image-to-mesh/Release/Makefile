@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rondo/Software/sandbox/MAT201B/allolib_playground
+CMAKE_SOURCE_DIR = /home/rondo/Software/sandbox/allolib_playground
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release
+CMAKE_BINARY_DIR = /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -126,9 +126,9 @@ list_install_components/fast: list_install_components
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rondo/Software/sandbox/allolib_playground/rodneydup/Assignment1/build/image-to-mesh/Release/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
