@@ -1,0 +1,15 @@
+-- ==== Configuring Gamma.
+-- Checking for module 'libsndfile'
+--   No package 'libsndfile' found
+-- Found SNDFILE 
+-- libsndfile: /usr/lib/x86_64-linux-gnu/libsndfile.so
+-- threading: -lpthread
+-- Using X11 for window creation
+-- Compiling with support for: jack alsa pulse
+-- Compiling with support for: jack alsa
+-- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
+-- Using the single-header code from /home/rondo/Software/sandbox/MAT201B/allolib_playground/allolib/external/json/single_include/
+-- Using libsndfile: /usr/lib/x86_64-linux-gnu/libsndfile.so
+-- Using fftw3: /usr/lib/x86_64-linux-gnu/libfftw3f.so
+-- Configuring done
+-- Build files have been written to: /home/rondo/Software/sandbox/MAT201B/allolib_playground/rodneydup/build/Assignment/Release
