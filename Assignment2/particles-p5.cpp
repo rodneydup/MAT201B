@@ -101,12 +101,12 @@ struct AlloApp : App {
 
       if (i < 34) {
         m = largeBodies[i];
-      } else if (34 <= i < 100) {
+      } else if ((34 <= i) && (i < 100)) {
         m = rnd::uniform(0.00001) + 0.00001;
-      } else if (100 <= i < 500) {
+      } else if ((100 <= i) && (i < 500)) {
         m = rnd::uniform(0.0000077) + 0.0000001;
-      } else if (500 <= i < 1000) {
-        m = rnd::uniform(0.00000001) + 0.00000000001;
+      } else if ((500 <= i) && (i < 1000)) {
+        m = rnd::uniform(0.00000001) + 0.000000000001;
       }
 
       mass.push_back(m);
