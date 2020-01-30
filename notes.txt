@@ -1,0 +1,9 @@
+Notes and open questions from class to ask Karl or look up later:
+
+Jan 23
+
+When should I use a lambda? Does it give performance benefits or is it nice in some other way?
+
+Why use forward referencing?
+
+reference like vector<Vec3f>& position(mesh.vertices()); allows us to basically use "position" to mean "mesh.vertices()"

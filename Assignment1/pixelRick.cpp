@@ -60,7 +60,7 @@ struct MyApp : App {
     } else if (pixbehaviour == 4) {
       if (counter > -60)
         counter -= 1;
-      if (gravity > -2)
+      if (gravity > -1)
         gravity -= 0.01;
       for (int i = 0; i < mesh.vertices().size(); i++) {
         rnd::Random<> rng;
@@ -79,7 +79,7 @@ struct MyApp : App {
         }
         if (counter == -60) {
           mesh.vertices()[i].lerp(
-              Vec3f((explode[i] * 2 - 1) + (r * 4), gravity + r2, 0), 0.0005);
+              Vec3f((explode[i] * 4 - 2) + (r * 4), gravity + r2, 0), 0.0005);
         }
       }
     } else if (pixbehaviour == 5) {
