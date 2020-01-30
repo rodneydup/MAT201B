@@ -36,7 +36,7 @@ struct AlloApp : App {
                                  // (gravity per earth mass) in AU^3/s^2
   const float largeBodies[34] = {
       // Geocentric masses of 34 largest bodies
-      333000,   31783,   95.162,   14.536,   17.147,  1,       0.815,
+      333000,   333000,   95.162,   14.536,   17.147,  1,       0.815,
       0.107,    0.0248,   0.0225,   0.0553,   0.018,   0.015,   0.0123,
       0.008035, 0.003599, 0.0022,   0.0028,   0.00059, 0.00066, 0.00039,
       0.0005,   0.00033,  0.00053,  0.00029,  0.00025, 0.0002,  0.000226,
@@ -84,7 +84,7 @@ struct AlloApp : App {
       return Vec3f(rng.uniformS(), rng.uniformS(), rng.uniformS()) * scale;
     };
     for (int i = 0; i < 500; i++) {
-      if (i == 0) {
+      if (i < 2) {
         mesh.color(HSV(0.125, 1, 1));
       } else if (i < 10) {
         mesh.color(rc());
@@ -112,24 +112,29 @@ struct AlloApp : App {
 
       // separate state arrays
       if (i == 0) {
-        mesh.vertex(0);
-        velocity.push_back(rv(0));
+        mesh.vertex(-1.14, 0, 0);
+        float initialVelocity = pow(GM * mass[0] / 2.28, 1.0 / 2);
+        velocity.push_back(Vec3f(0, -initialVelocity / 2, 0));
+        acceleration.push_back(0);
+      } else if (i == 1) {
+        mesh.vertex(1.14, 0, 0);
+        float initialVelocity = pow(GM * mass[0] / 2.28, 1.0 / 2);
+        velocity.push_back(Vec3f(0, initialVelocity / 2, 0));
         acceleration.push_back(0);
       } else {
         float initialDistance =
             sqrt(i < 10 ? planetDistance[i] : rnd::uniform(30.0) + 1);
-        mesh.vertex(initialDistance, 0, 0);
-        float initialVelocity = pow(GM * mass[0] / initialDistance, 1.0 / 2);
-        velocity.push_back(Vec3f(0, initialVelocity, 0));
+        mesh.vertex(rv(3));
+        velocity.push_back(Vec3f(0, 0, 0));
         acceleration.push_back(0);
       }
 
       // using a simplified volume/size relationship
-      if (i == 0) {
+      if (i < 2) {
         mesh.texCoord(20, 0); // s, t
       } else {
-      float s = pow(m, 1.0 / 3);
-      mesh.texCoord(s > 0.4 ? s : 0.4, 0); // s, t
+        float s = pow(m, 1.0 / 3);
+        mesh.texCoord(s > 0.4 ? s : 0.4, 0); // s, t
       }
     }
   }
@@ -156,12 +161,14 @@ struct AlloApp : App {
         acceleration[j] += F / (1 + float(asymmetry));
       }
     }
-
+    // printf("%f %f %f \n", F[0], F[1], F[2])
     // Integration
     //
     vector<Vec3f> &position(mesh.vertices());
     for (int i = 0; i < velocity.size(); i++) {
       // "backward" Euler integration
+      if (acceleration[i].mag() / mass[i] > 1 && i > 1)
+        acceleration[i].normalize(mass[i] * 1);
       velocity[i] += acceleration[i] / mass[i] * dt;
       position[i] += velocity[i] * dt;
 

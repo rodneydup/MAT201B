@@ -83,7 +83,8 @@ struct AlloApp : App {
     auto rv = [&](float scale) -> Vec3f {
       return Vec3f(rng.uniformS(), rng.uniformS(), rng.uniformS()) * scale;
     };
-    for (int i = 0; i < 500; i++) {
+
+    for (int i = 0; i < 1000; i++) {
       if (i == 0) {
         mesh.color(HSV(0.125, 1, 1));
       } else if (i < 10) {
@@ -105,7 +106,7 @@ struct AlloApp : App {
       } else if (100 <= i < 500) {
         m = rnd::uniform(0.0000077) + 0.0000001;
       } else if (500 <= i < 1000) {
-        m = rnd::uniform(0.00000001) + 0.000000000001;
+        m = rnd::uniform(0.00000001) + 0.00000000001;
       }
 
       mass.push_back(m);
@@ -143,10 +144,22 @@ struct AlloApp : App {
     dt = timeStep;
     // Calculate forces
     for (int i = 0; i < velocity.size(); i++) {
-      
+      if (mass[i] == 0)
+        continue;
+      // drag
+      // acceleration[i] -= velocity[i] * dragFactor;
       // Inter-particle gravitation
       for (int j = i + 1; j < velocity.size(); j++) {
         Vec3f r = mesh.vertices()[i] - mesh.vertices()[j];
+        if (mass[j] == 0)
+          continue;
+        if (r.mag() < 0.01) {
+          mass[i] += mass[j];
+          mass[j] = 0;
+          mesh.vertices()[j] = 0;
+          float s = pow(mass[i], 1.0 / 3);
+          mesh.texCoord2s()[i] = Vec2f(s > 0.4 ? s : 0.4, 0);
+        }
         float distcubed = pow(r.mag(), 3.0);
         if (distcubed == 0)
           continue;
@@ -154,8 +167,6 @@ struct AlloApp : App {
         acceleration[i] -= F * (1 + float(asymmetry));
         acceleration[j] += F / (1 + float(asymmetry));
       }
-      // drag
-      // acceleration[i] -= velocity[i] * dragFactor;
     }
 
     // Integration
