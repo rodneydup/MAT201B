@@ -212,17 +212,18 @@ struct AlloApp : App {
     }
     g.shader(pointShader);
     g.shader().uniform("pointSize", pointSize / 100);
-    g.blending(true);
-    g.blendModeTrans();
-    g.depthTesting(true);
+    // gl::blending(true);
+    gl::blendTrans();
+    gl::depthTesting(true);
     g.draw(mesh);
 
     if (drawTrails) {
-      g.depthTesting(false);
+      gl::depthTesting(false);
       trail.copyFrameBuffer(); // 3. Copy current (read) frame buffer to texture
     }
 
     imguiBeginFrame();
+    ImGui::SetWindowFontScale(2.0);
     ParameterGUI::beginPanel("Control");
     ParameterGUI::drawParameter(&pointSize);
     ParameterGUI::drawParameter(&timeStep);
