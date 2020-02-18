@@ -75,11 +75,11 @@ struct MyApp : App {
         if (counter < 0 && counter > -60) {
           gravity = 1;
           mesh.vertices()[i].lerp(
-              Vec3f((explode[i] * 2 - 1) + (r * 4), gravity + r2, 0), 0.1);
+              Vec3f((explode[i] * 2 - 1) + (r * 4), gravity + r2, poseHSV[i].z * 4 - 2), 0.1);
         }
         if (counter == -60) {
           mesh.vertices()[i].lerp(
-              Vec3f((explode[i] * 4 - 2) + (r * 4), gravity + r2, 0), 0.0005);
+              Vec3f((explode[i] * 4 - 2) + (r * 4), gravity + r2, poseHSV[i].z * 4 - 2), 0.0005);
         }
       }
     } else if (pixbehaviour == 5) {
@@ -135,7 +135,7 @@ struct MyApp : App {
   }
 
   void onDraw(Graphics &g) override {
-    g.clear(0.1);
+    g.clear(0);
     g.meshColor();
     g.draw(mesh);
   }
