@@ -8,7 +8,6 @@ using namespace al;
 struct SharedState {
   Pose cameraPose;
   float background;
-  float size, ratio;
   Mesh mesh;
 };
 
@@ -154,7 +153,7 @@ struct MyApp : public DistributedAppWithState<SharedState> {
               0.01);
         }
       }
-      // Copy all the agents into shared state;
+      // Copy mesh into shared state;
       for (unsigned i = 0; i < mesh.vertices().size(); i++) {
         state().mesh.vertices()[i] = mesh.vertices()[i];
       }
@@ -168,7 +167,7 @@ struct MyApp : public DistributedAppWithState<SharedState> {
   }
 
   void onDraw(Graphics &g) override {
-    g.clear(0.1);
+    g.clear(0);
     g.meshColor();
     g.draw(mesh);
   }
@@ -209,6 +208,5 @@ struct MyApp : public DistributedAppWithState<SharedState> {
 };
 
 int main() {
-  MyApp app;
-  app.start();
+  MyApp().start();
 }
