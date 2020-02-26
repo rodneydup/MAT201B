@@ -1,0 +1,7 @@
+The video by Art of Code was one of the most accessible introductions to ray marching I've seen. I understood everything he said.
+
+Running the ray marching example, it runs pretty well. I notice that the program slows down a lot as I expand thewindow though. This is probably because shaders are calculated per pixel and the pixel count grows a lot. Also notice my cpu usage report doesn't go up much even when my machine is really struggling, which makes sense since the GPU is doing all the work.
+
+The glsl files are still mostly greek to me but I hope I'll get more familiar with the syntax soon. I'm also wondering why there are so many functions in fragment.glsl. I definitely didn't expect it to be 400 lines after watching the art of code example and seeing how "simple" ray marching can be.
+
+Doing the book of shaders went well. It was useful to apply the concepts as I learned them using their editor.
